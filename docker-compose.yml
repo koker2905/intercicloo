@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  websocket:
+    build:
+      context: ./websocket
+    ports:
+      - "8765:8765"
+
+  angular-web:
+    build:
+      context: ./interciclo
+    ports:
+      - "3000:80"
+    depends_on:
+      - websocket
